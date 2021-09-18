@@ -1,14 +1,18 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { NavBar } from 'app/components';
 
-export function HomePage() {
+export function HomePageOld() {
   return (
     <>
       <Helmet>
-        <title>Home Page</title>
-        <meta name="description" content="A Boilerplate application homepage" />
+        <title>Hi! I'm Jose</title>
+        <meta
+          name="description"
+          content="Jose Santos - My Personal Portfolio"
+        />
       </Helmet>
-      <span>HomePage container</span>
+      <NavBar />
     </>
   );
 }
