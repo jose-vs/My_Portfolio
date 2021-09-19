@@ -20,11 +20,14 @@ export function App() {
   return (
     <BrowserRouter>
       <Helmet
-        titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
+        titleTemplate="%s - Personal Portfolio"
+        defaultTitle="Personal Portfolio"
         htmlAttributes={{ lang: i18n.language }}
       >
-        <meta name="description" content="A React Boilerplate application" />
+        <meta
+          name="description"
+          content="Jose Santos's Software Developer Portfolio"
+        />
       </Helmet>
 
       <Switch>
