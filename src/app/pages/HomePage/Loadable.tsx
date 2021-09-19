@@ -4,6 +4,7 @@
 
 import * as React from 'react';
 import { lazyLoad } from 'utils/loadable';
+import { LoadingIndicator } from 'app/components/LoadingIndicator';
 import styled from 'styled-components/macro';
 
 const LoadingWrapper = styled.div`
@@ -14,7 +15,14 @@ const LoadingWrapper = styled.div`
   justify-content: center;
 `;
 
-export const Homepagte = lazyLoad(
+export const HomePage = lazyLoad(
   () => import('./index'),
-  module => module.HomePageOld,
+  module => module.HomePage,
+  {
+    fallback: (
+      <LoadingWrapper>
+        <LoadingIndicator />
+      </LoadingWrapper>
+    ),
+  },
 );

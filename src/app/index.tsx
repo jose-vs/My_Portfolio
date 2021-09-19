@@ -10,9 +10,9 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
-import { GlobalStyle } from 'styles/global-styles';
+import { GlobalStyle } from '../styles/global-styles';
 
-import { HomePageOld, NotFoundPage } from './pages';
+import { HomePage, NotFoundPage } from './pages';
 import { useTranslation } from 'react-i18next';
 
 export function App() {
@@ -20,14 +20,15 @@ export function App() {
   return (
     <BrowserRouter>
       <Helmet
-        defaultTitle="Hi! I'm Jose"
+        titleTemplate="%s - React Boilerplate"
+        defaultTitle="React Boilerplate"
         htmlAttributes={{ lang: i18n.language }}
       >
-        <meta name="description" content="Jose Santos - My Portfolio" />
+        <meta name="description" content="A React Boilerplate application" />
       </Helmet>
 
       <Switch>
-        <Route exact path="/" component={HomePageOld} />
+        <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

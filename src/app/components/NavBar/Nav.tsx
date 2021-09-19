@@ -5,20 +5,20 @@ export function Nav() {
   return (
     <Wrapper>
       <Item
-        href="https://cansahin.gitbook.io/react-boilerplate-cra-template/"
-        target="_blank"
-        title="Documentation Page"
-        rel="noopener noreferrer"
-      >
-        Documentation
-      </Item>
-      <Item
-        href="https://github.com/react-boilerplate/react-boilerplate-cra-template"
+        href="https://github.com/jose-vs"
         target="_blank"
         title="Github Page"
         rel="noopener noreferrer"
       >
         Github
+      </Item>
+      <Item
+        href="https://www.linkedin.com/in/jose-santos-6b8a63200/"
+        target="_blank"
+        title="LinkedIn Page"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
       </Item>
     </Wrapper>
   );

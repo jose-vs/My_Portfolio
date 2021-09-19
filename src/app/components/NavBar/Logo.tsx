@@ -5,7 +5,7 @@ export function Logo() {
   return (
     <Wrapper>
       <Title>Jose Santos</Title>
-      <Description>Personal Portfolio</Description>
+      <Description>Software Developer Portfolio</Description>
     </Wrapper>
   );
 }
