@@ -1,5 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
+import { ReactComponent as GithubIcon } from './assets/github-icon.svg';
+import { ReactComponent as LinkedInIcon } from './assets/linkedin-icon.svg';
+import { ReactComponent as ResumeIcon } from './assets/resume-icon.svg';
 
 export function Nav() {
   return (
@@ -10,6 +13,7 @@ export function Nav() {
         title="Github Page"
         rel="noopener noreferrer"
       >
+        <GithubIcon style={{ marginRight: 5 }} />
         Github
       </Item>
       <Item
@@ -18,7 +22,17 @@ export function Nav() {
         title="LinkedIn Page"
         rel="noopener noreferrer"
       >
+        <LinkedInIcon style={{ marginRight: 5 }} />
         LinkedIn
+      </Item>
+      <Item
+        href="resume-file.pdf"
+        target="_blank"
+        title="My Resume"
+        rel="noopener noreferrer"
+      >
+        <ResumeIcon style={{ marginRight: 5 }} />
+        Resume
       </Item>
     </Wrapper>
   );
