@@ -1,10 +1,46 @@
 import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
+import { themeActions } from 'styles/theme/slice';
+import { selectThemeKey } from 'styles/theme/slice/selectors';
+import { ThemeKeyType } from 'styles/theme/slice/types';
+import { isSystemDark, saveTheme } from 'styles/theme/utils';
 import { ReactComponent as GithubIcon } from './assets/github-icon.svg';
 import { ReactComponent as LinkedInIcon } from './assets/linkedin-icon.svg';
 import { ReactComponent as ResumeIcon } from './assets/resume-icon.svg';
 
 export function Nav() {
+  const theme = useSelector(selectThemeKey);
+  const dispatch = useDispatch();
+
+  const getTheme = () => {
+    if (theme === 'system') {
+      return isSystemDark ? 'dark' : 'light';
+    }
+
+    return theme;
+  };
+
+  const handleThemeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value as ThemeKeyType;
+
+    var changeValue;
+
+    if (value === 'system') {
+      changeValue = isSystemDark
+        ? ('light' as ThemeKeyType)
+        : ('dark' as ThemeKeyType);
+    } else {
+      changeValue =
+        value === ('dark' as ThemeKeyType)
+          ? ('light' as ThemeKeyType)
+          : ('dark' as ThemeKeyType);
+    }
+
+    saveTheme(changeValue);
+    dispatch(themeActions.changeTheme(changeValue));
+  };
+
   return (
     <Wrapper>
       <Item
@@ -13,7 +49,7 @@ export function Nav() {
         title="Github Page"
         rel="noopener noreferrer"
       >
-        <GithubIcon style={{ marginRight: 5 }} />
+        <GithubIcon style={{ marginRight: 5, padding: 2 }} />
         Github
       </Item>
       <Item
@@ -22,7 +58,7 @@ export function Nav() {
         title="LinkedIn Page"
         rel="noopener noreferrer"
       >
-        <LinkedInIcon style={{ marginRight: 5 }} />
+        <LinkedInIcon style={{ marginRight: 5, padding: 2 }} />
         LinkedIn
       </Item>
       <Item
@@ -31,9 +67,19 @@ export function Nav() {
         title="My Resume"
         rel="noopener noreferrer"
       >
-        <ResumeIcon style={{ marginRight: 5 }} />
+        <ResumeIcon style={{ marginRight: 5, padding: 2 }} />
         Resume
       </Item>
+      <CheckBoxWrapper>
+        <CheckBox
+          id="checkbox"
+          type="checkbox"
+          value={theme}
+          onChange={handleThemeChange}
+          checked={getTheme() === 'dark'}
+        />
+        <CheckBoxLabel htmlFor="checkbox" />
+      </CheckBoxWrapper>
     </Wrapper>
   );
 }
@@ -63,5 +109,49 @@ const Item = styled.a`
 
   .icon {
     margin-right: 0.25rem;
+  }
+`;
+
+const CheckBoxWrapper = styled.div`
+  position: relative;
+`;
+const CheckBoxLabel = styled.label`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 26px;
+  border-radius: 15px;
+  background: #bebebe;
+  cursor: pointer;
+  &::after {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    margin: 3px;
+    background: #fffffa;
+    box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
+    transition: 0.2s;
+  }
+`;
+const CheckBox = styled.input`
+  opacity: 0;
+  z-index: 1;
+  border-radius: 15px;
+  width: 42px;
+  height: 26px;
+  &:checked + ${CheckBoxLabel} {
+    background: ${p => p.theme.primary};
+    &::after {
+      content: '';
+      display: block;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      margin-left: 21px;
+      transition: 0.2s;
+    }
   }
 `;
