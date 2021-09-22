@@ -1,36 +1,50 @@
+import { PageWrapper } from 'app/components';
 import * as React from 'react';
 import styled from 'styled-components/macro';
+import { StyleConstants } from 'styles/StyleConstants';
 
 export function MastHead() {
   return (
-    <>
-      <Wrapper>
-        <ContentRow>
-          <ContentInfoColumn>
-            <TextWrapper>
-              <Heading>Hi, My name is Jose. A Software Developer!</Heading>
-              <Subtitle>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </Subtitle>
-            </TextWrapper>
-          </ContentInfoColumn>
-          <ContentInfoColumn>
-            <ImageWrapper>
-              <Image src={'me.png'} />
-            </ImageWrapper>
-          </ContentInfoColumn>
-        </ContentRow>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <ContentRow>
+        <ContentInfoColumn>
+          <TextWrapper>
+            <Heading>Hi, My name is Jose. A Software Developer!</Heading>
+            <Subtitle>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </Subtitle>
+          </TextWrapper>
+        </ContentInfoColumn>
+        <ContentInfoColumn>
+          <ImageWrapper>
+            <Image src={'me.png'} />
+          </ImageWrapper>
+        </ContentInfoColumn>
+      </ContentRow>
+    </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  align-items: center;
-  padding: 4% 0px;
+  background-color: ${p => p.theme.background};
+  margin: 5% auto;
+  @supports (backdrop-filter: blur(10px)) {
+    backdrop-filter: blur(10px);
+    background-color: ${p =>
+      p.theme.background.replace(
+        /rgba?(\(\s*\d+\s*,\s*\d+\s*,\s*\d+)(?:\s*,.+?)?\)/,
+        'rgba$1,0.75)',
+      )};
+  }
+
+  ${PageWrapper} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  } ;
 `;
 
 const ContentRow = styled.div`
