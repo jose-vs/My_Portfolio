@@ -70,7 +70,7 @@ export function Nav() {
         <ResumeIcon style={{ marginRight: 5, padding: 2 }} />
         Resume
       </Item>
-      <CheckBoxWrapper>
+      {/* <CheckBoxWrapper>
         <CheckBox
           id="checkbox"
           type="checkbox"
@@ -79,7 +79,7 @@ export function Nav() {
           checked={getTheme() === 'dark'}
         />
         <CheckBoxLabel htmlFor="checkbox" />
-      </CheckBoxWrapper>
+      </CheckBoxWrapper> */}
     </Wrapper>
   );
 }
@@ -90,7 +90,7 @@ const Wrapper = styled.nav`
 `;
 
 const Item = styled.a`
-  color: ${p => p.theme.primary};
+  color: ${p => p.theme.navPrimary};
   cursor: pointer;
   text-decoration: none;
   display: flex;
@@ -143,7 +143,7 @@ const CheckBox = styled.input`
   width: 42px;
   height: 26px;
   &:checked + ${CheckBoxLabel} {
-    background: ${p => p.theme.primary};
+    background: ${p => p.theme.navPrimary};
     &::after {
       content: '';
       display: block;

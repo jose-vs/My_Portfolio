@@ -15,7 +15,6 @@ export function HomePage() {
       </Helmet>
       <NavBar />
       <MastHead />
-      <MastHead />
     </>
   );
 }

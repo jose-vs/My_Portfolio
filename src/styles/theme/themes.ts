@@ -1,5 +1,8 @@
 const lightTheme = {
-  primary: 'rgba(85,113,116,1)',
+  navPrimary: 'rgba(37,39,39,1)',
+  navSecondary: 'rgba(107,109,109,1)',
+  mastSubtitle: 'rgba(241,233,231,0.6)',
+  primary: 'rgba(255,221,0,1)',
   text: 'rgba(58,52,51,1)',
   textSecondary: 'rgba(58,52,51,0.7)',
   background: 'rgba(250,248,243,1)',
@@ -9,7 +12,10 @@ const lightTheme = {
 };
 
 const darkTheme: Theme = {
-  primary: 'rgba(0,120,95,1)',
+  navPrimary: 'rgba(37,39,39,1)',
+  navSecondary: 'rgba(107,109,109,1)',
+  mastSubtitle: 'rgba(241,233,231,0.8)',
+  primary: 'rgba(255,221,0,1)',
   text: 'rgba(241,233,231,1)',
   textSecondary: 'rgba(241,233,231,0.6)',
   background: 'rgba(28,31,29,1)',

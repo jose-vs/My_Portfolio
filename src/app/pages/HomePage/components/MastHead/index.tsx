@@ -6,10 +6,11 @@ import { StyleConstants } from 'styles/StyleConstants';
 export function MastHead() {
   return (
     <Wrapper>
+      <Background src="background.jpg" />
       <ContentRow>
         <ContentInfoColumn>
           <TextWrapper>
-            <Heading>Hi, My name is Jose. A Software Developer!</Heading>
+            <Heading>Hi, I am Jose. A Software Developer!</Heading>
             <Subtitle>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -20,7 +21,7 @@ export function MastHead() {
         </ContentInfoColumn>
         <ContentInfoColumn>
           <ImageWrapper>
-            <Image src={'me.png'} />
+            <Image src={'cutout.png'} />
           </ImageWrapper>
         </ContentInfoColumn>
       </ContentRow>
@@ -29,8 +30,9 @@ export function MastHead() {
 }
 
 const Wrapper = styled.div`
-  background-color: ${p => p.theme.background};
-  margin: 5% auto;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
   @supports (backdrop-filter: blur(10px)) {
     backdrop-filter: blur(10px);
     background-color: ${p =>
@@ -47,7 +49,18 @@ const Wrapper = styled.div`
   } ;
 `;
 
+const Background = styled.img`
+  z-index: -1;
+  position: absolute;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: fill;
+`;
+
 const ContentRow = styled.div`
+  padding-top: ${StyleConstants.NAV_BAR_HEIGHT};
+  margin: 50px auto;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -83,27 +96,27 @@ const TextWrapper = styled.div`
   }
 `;
 
-export const Heading = styled.h1`
+const Heading = styled.h1`
   margin-bottom: 24px;
   font-size: 58px;
   line-height: 1.1;
   font-weight: 600;
-  color: ${p => p.theme.text};
+  color: ${p => p.theme.primary};
 
   @media screen and (max-width: 420px) {
-    font-size: 32px;
+    font-size: 42px;
   }
 `;
 
-export const Subtitle = styled.p`
+const Subtitle = styled.p`
   max-width: 560px;
   margin-bottom: 35px;
   font-size: 18px;
   line-height: 24px;
-  color: ${p => p.theme.textSecondary};
+  color: ${p => p.theme.mastSubtitle};
 
   @media screen and (max-width: 420px) {
-    font-size: 12px;
+    font-size: 18px;
     margin-bottom: 0px;
   }
 `;

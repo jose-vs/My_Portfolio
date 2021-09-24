@@ -5,7 +5,11 @@ export function Logo() {
   return (
     <Wrapper>
       <Title>Jose Santos</Title>
-      <Description>Software Developer Portfolio</Description>
+      <Description>
+        <Item>about</Item>
+        <Item>work</Item>
+        <Item>contact</Item>
+      </Description>
     </Wrapper>
   );
 }
@@ -17,13 +21,29 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   font-size: 1.25rem;
-  color: ${p => p.theme.text};
+  color: ${p => p.theme.navPrimary};
   font-weight: bold;
   margin-right: 1rem;
 `;
 
 const Description = styled.div`
+  flex-direction: row;
+`;
+
+const Item = styled.a`
+  color: ${p => p.theme.navSecondary};
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0.25rem 2rem;
   font-size: 0.875rem;
-  color: ${p => p.theme.textSecondary};
-  font-weight: normal;
+  font-weight: 500;
+  align-items: center;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.4;
+  }
 `;
