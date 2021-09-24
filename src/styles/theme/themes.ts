@@ -14,7 +14,7 @@ const lightTheme = {
 const darkTheme: Theme = {
   navPrimary: 'rgba(37,39,39,1)',
   navSecondary: 'rgba(107,109,109,1)',
-  mastSubtitle: 'rgba(241,233,231,0.6)',
+  mastSubtitle: 'rgba(241,233,231,0.8)',
   primary: 'rgba(255,221,0,1)',
   text: 'rgba(241,233,231,1)',
   textSecondary: 'rgba(241,233,231,0.6)',

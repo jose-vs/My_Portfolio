@@ -104,7 +104,7 @@ const Heading = styled.h1`
   color: ${p => p.theme.primary};
 
   @media screen and (max-width: 420px) {
-    font-size: 32px;
+    font-size: 42px;
   }
 `;
 
@@ -116,7 +116,7 @@ const Subtitle = styled.p`
   color: ${p => p.theme.mastSubtitle};
 
   @media screen and (max-width: 420px) {
-    font-size: 12px;
+    font-size: 18px;
     margin-bottom: 0px;
   }
 `;
